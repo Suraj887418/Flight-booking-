@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Outfit', sans-serif;
+    @apply text-slate-700 bg-slate-50;
+  }
+  
+  input:not([type="radio"]):not([type="checkbox"]), textarea, select {
+    @apply text-slate-700 bg-transparent outline-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-shadow duration-200 placeholder-slate-400;
+  }
+
+  /* Hide the ugly default datalist arrow but keep date picker */
+  input[list]::-webkit-calendar-picker-indicator {
+    display: none !important;
+  }
+
+  /* Fix Chrome autofill styling */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover, 
+  input:-webkit-autofill:focus, 
+  input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+    -webkit-text-fill-color: #334155 !important; /* slate-700 */
+    transition: background-color 5000s ease-in-out 0s;
+  }
+}
+/* e:/final year projects/Airplane Ticket Booking/frontend/src/index.css */
+@layer components {
+  .seatContainer {
+    @apply flex justify-center items-center w-[40px] h-[40px] sm:w-[50px] sm:h-[50px] bg-white rounded-md cursor-pointer transition duration-200;
+  }
+
+  .selectedSeats {
+    @apply text-white bg-blue-500;
+  }
+
+  .bookedSeats {
+    @apply bg-gray-400 cursor-not-allowed lg:hover:bg-gray-500;
+  }
+
+  .seatsHover {
+    @apply md:hover:bg-blue-400 md:hover:text-white;
+  }
+}
